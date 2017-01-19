@@ -14,6 +14,9 @@ import edu.cpp.cs580.App;
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.provider.UserManager;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * This is the controller used by Spring framework.
@@ -133,4 +136,15 @@ public class WebController {
 		return modelAndView;
 	}
 
+	/*********** Assignment 3 **********/
+        /**
+         * 
+         * This method displays the date and time. 
+         */
+	@RequestMapping(value = "/cs580/date", method = RequestMethod.GET)
+	String showDate() {
+            DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+            Date dateobj = new Date();
+            return df.format(dateobj);
+	}
 }
