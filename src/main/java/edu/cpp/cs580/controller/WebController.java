@@ -17,6 +17,8 @@ import edu.cpp.cs580.data.provider.UserManager;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.lang.StringBuilder;
+
 
 /**
  * This is the controller used by Spring framework.
@@ -146,5 +148,22 @@ public class WebController {
             DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
             Date dateobj = new Date();
             return df.format(dateobj);
+	}
+
+	/**
+	 *
+	 * This method inserts a lot of text onto the webpage as 
+	 * a stress test to see if the webpage can handle it. 
+	 */
+
+
+	@RequestMapping(value = "/cs580/stress", method = RequestMethod.GET)
+	String stress() {
+			StringBuilder str = new StringBuilder("OK-CS580 ");
+			for (int i = 0; i < 100; i++)
+			{
+				str.append("OK-CS580 "); 
+			}
+            return str.toString(); 
 	}
 }
